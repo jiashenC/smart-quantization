@@ -62,7 +62,7 @@ class GLUEDataModule(LightningDataModule):
     def __init__(self, hparams):
         super().__init__()
 
-        self.hparams = hparams
+        self.hparams.update(hparams)
         self.hparams.num_labels = self.glue_task_num_labels[self.hparams.task_name]
 
         if self.hparams.val_batch_size is None:
